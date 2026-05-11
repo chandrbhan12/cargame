@@ -278,73 +278,73 @@ button:active {
 
 /* Mobile Controls */
 #mobile-controls {
-  position: absolute;
-  bottom: 120px; /* Moved even higher to ensure visibility on all phones */
+  position: fixed; /* Changed to fixed for better stability on mobile browsers */
+  bottom: 160px; /* Moved very high up to prevent any cutoff */
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 0 40px;
+  padding: 0 30px;
   padding-bottom: env(safe-area-inset-bottom);
   pointer-events: none;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .steering-controls {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   pointer-events: auto;
 }
 
 .speed-controls {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   align-items: center;
   pointer-events: auto;
 }
 
 .control-btn {
-  width: 85px;
-  height: 85px;
-  background: rgba(0, 0, 0, 0.4); /* Dark background for high contrast */
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  width: 75px;
+  height: 75px;
+  background: rgba(0, 0, 0, 0.6); /* Even darker for better visibility */
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 42px; /* Bigger arrows */
+  font-size: 38px;
   color: white;
   user-select: none;
   touch-action: none;
   transition: all 0.1s;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.7);
   -webkit-tap-highlight-color: transparent;
 }
 
 .control-btn:active {
   background: var(--primary);
   border-color: var(--primary);
-  transform: scale(0.85);
+  transform: scale(0.8);
   box-shadow: 0 0 40px var(--primary-glow);
 }
 
 .speed-btn {
-  width: 75px;
-  height: 75px;
-  font-size: 32px;
+  width: 65px;
+  height: 65px;
+  font-size: 28px;
 }
 
-/* Perfect centering fix */
+/* Centering fix */
 .control-btn span {
     display: flex;
     justify-content: center;
     align-items: center;
     line-height: 1;
     pointer-events: none;
-    margin-top: -4px; /* Optical centering adjustment */
+    margin-top: -2px;
 }
 
 /* Responsive adjustments */
