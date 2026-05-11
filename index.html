@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turbo Velocity - 3D Racing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="ui-layer">
+      <div id="hud">
+        <div class="stat">
+          <span class="label">DISTANCE</span>
+          <span id="score-val">0</span>m
+        </div>
+        <div class="stat">
+          <span class="label">COINS</span>
+          <span id="coins-val">0</span>
+        </div>
+        <div class="speedometer-container">
+          <div class="speed-gauge">
+            <div id="speed-needle"></div>
+          </div>
+          <div class="stat">
+            <span class="label">SPEED</span>
+            <span id="speed-val">0</span>
+          </div>
+        </div>
+        <button id="sound-toggle" class="icon-btn">
+          <span id="sound-icon">🔊</span>
+        </button>
+      </div>
+
+      <div id="mobile-controls" class="hidden">
+        <div class="steering-controls">
+            <div class="control-btn" id="ctrl-left">←</div>
+            <div class="control-btn" id="ctrl-right">→</div>
+        </div>
+        <div class="speed-controls">
+            <div class="control-btn speed-btn" id="ctrl-up">↑</div>
+            <div class="control-btn speed-btn" id="ctrl-down">↓</div>
+        </div>
+      </div>
+
+      <div id="start-screen" class="overlay">
+        <div class="content">
+          <div class="logo">
+            <h1>TURBO VELOCITY</h1>
+            <div class="logo-sub">HYPER RACER</div>
+          </div>
+          <p>Avoid traffic, collect coins, and survive the rush</p>
+          <div class="controls-hint">
+            <div class="key">Arrows / WASD</div>
+            <span>to Drive</span>
+          </div>
+          <button id="start-btn">START ENGINE</button>
+          
+          <div class="sound-settings">
+            <span class="label">SOUND</span>
+            <button id="main-sound-toggle">ON</button>
+          </div>
+
+          <div class="car-selection">
+            <span class="label">SELECT YOUR RIDE</span>
+            <div class="car-options">
+                <div class="car-opt active" data-type="SPORT">BMW</div>
+                <div class="car-opt" data-type="SUPER">AUDI</div>
+                <div class="car-opt" data-type="OFFROAD">THAR</div>
+                <div class="car-opt" data-type="CLASSIC">SEDAN</div>
+                <div class="car-opt" data-type="HYPER">HYPER</div>
+            </div>
+          </div>
+
+          <div class="best-score">BEST: <span id="best-score-start">0</span>m</div>
+        </div>
+      </div>
+
+      <div id="game-over-screen" class="overlay hidden">
+        <div class="content">
+          <h2 class="crash-text">CRASHED!</h2>
+          <div class="final-stats">
+            <div class="final-stat">
+              <span class="label">TOTAL DISTANCE</span>
+              <span id="final-score">0</span>m
+            </div>
+            <div class="final-stat">
+              <span class="label">COINS COLLECTED</span>
+              <span id="final-coins">0</span>
+            </div>
+            <div class="final-stat">
+              <span class="label">BEST DISTANCE</span>
+              <span id="best-score">0</span>m
+            </div>
+          </div>
+          <button id="restart-btn">RETRY</button>
+        </div>
+      </div>
+    </div>
+    
+    <canvas id="game-canvas"></canvas>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
