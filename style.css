@@ -279,13 +279,13 @@ button:active {
 /* Mobile Controls */
 #mobile-controls {
   position: absolute;
-  bottom: 80px; /* Moved up significantly to avoid phone nav bars */
+  bottom: 120px; /* Moved even higher to ensure visibility on all phones */
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 0 20px;
+  padding: 0 40px;
   padding-bottom: env(safe-area-inset-bottom);
   pointer-events: none;
   z-index: 1000;
@@ -293,48 +293,48 @@ button:active {
 
 .steering-controls {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   pointer-events: auto;
 }
 
 .speed-controls {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
   align-items: center;
   pointer-events: auto;
 }
 
 .control-btn {
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.25); /* Increased opacity for visibility */
+  width: 85px;
+  height: 85px;
+  background: rgba(0, 0, 0, 0.4); /* Dark background for high contrast */
   backdrop-filter: blur(10px);
-  border: 3px solid rgba(255, 255, 255, 0.4); /* Stronger border */
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 36px;
+  font-size: 42px; /* Bigger arrows */
   color: white;
   user-select: none;
   touch-action: none;
   transition: all 0.1s;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   -webkit-tap-highlight-color: transparent;
 }
 
 .control-btn:active {
   background: var(--primary);
   border-color: var(--primary);
-  transform: scale(0.9);
-  box-shadow: 0 0 30px var(--primary-glow);
+  transform: scale(0.85);
+  box-shadow: 0 0 40px var(--primary-glow);
 }
 
 .speed-btn {
-  width: 70px;
-  height: 70px;
-  font-size: 28px;
+  width: 75px;
+  height: 75px;
+  font-size: 32px;
 }
 
 /* Perfect centering fix */
@@ -344,6 +344,7 @@ button:active {
     align-items: center;
     line-height: 1;
     pointer-events: none;
+    margin-top: -4px; /* Optical centering adjustment */
 }
 
 /* Responsive adjustments */
