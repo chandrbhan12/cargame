@@ -34,10 +34,14 @@ class Game {
     this.scene.fog = new THREE.Fog(0x87ceeb, 20, 300);
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true });
+    this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true, powerPreference: 'high-performance' });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    this.renderer.shadowMap.enabled = true;
+    
+    // Performance: Limit pixel ratio on mobile
+    const isMobile = window.innerWidth < 768;
+    this.renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2));
+    
+    this.renderer.shadowMap.enabled = !isMobile; // Disable shadows on mobile for speed
     this.renderer.toneMapping = THREE.ReinhardToneMapping;
 
     this.setupLights();
@@ -98,7 +102,8 @@ class Game {
 
   updateEnvironment() {
     const themes = Object.keys(CONFIG.THEMES);
-    const themeIndex = Math.floor(this.distance / 1000) % themes.length;
+    // Change theme every 500m
+    const themeIndex = Math.floor(this.distance / 500) % themes.length;
     const themeKey = themes[themeIndex];
 
     if (this.currentTheme !== themeKey) {
